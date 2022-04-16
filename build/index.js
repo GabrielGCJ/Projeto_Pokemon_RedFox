@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const Migrations_1 = require("./Data/Migrations");
+const InsertPokemons_1 = require("./Data/InsertPokemons");
 console.log("Tá FuncionanIIIIIIIII...!!!!");
-(0, Migrations_1.Migrations)();
+(0, InsertPokemons_1.InsertPokemons)();
 //# sourceMappingURL=index.js.map

@@ -15,12 +15,21 @@ const Migrations = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
         yield BaseDataBase_1.connection.raw(`
           CREATE TABLE IF NOT EXISTS Poke_Red_Fox (
-            Id VARCHAR(255) PRIMARY KEY,
+            Id INT PRIMARY KEY,
             Name VARCHAR(255) UNIQUE NOT NULL,
-            PokedexNumber INT NOT NULL,
-            responsible VARCHAR(255) UNIQUE NOT NULL 
-            );
-        
+            Generation INT, 
+            EvolutionStage INT,
+            Type1 VARCHAR(255),
+            Type2 VARCHAR(255),
+            Weather1 VARCHAR(255),
+            Weather2 VARCHAR(255),
+            STATTOTAL INT,
+            ATK INT,
+            DEF INT,
+            STA INT,
+            CP40 INT,
+            CP39 INT
+            );        
         `);
         console.log("Banco de dados adicionado/atualizado com sucesso...");
     }
