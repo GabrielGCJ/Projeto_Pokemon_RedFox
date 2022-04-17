@@ -1,4 +1,4 @@
-import { InsertPokemons } from "./Data/InsertPokemons"
+import { InsertAllPokemons } from "./Data/InsertPokemons"
 import { Migrations } from "./Data/Migrations"
 
 
@@ -6,6 +6,5 @@ import { Migrations } from "./Data/Migrations"
 
 console.log("Tá FuncionanIIIIIIIII...!!!!")
 
-// Migrations()
-
-InsertPokemons()
+Migrations()
+InsertAllPokemons()

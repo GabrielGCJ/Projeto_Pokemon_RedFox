@@ -1,31 +1,24 @@
 import { connection } from "./BaseDataBase"
 import { TodosOsPokemons } from "./TodosOsPokemons"
 
-
-
-export const InsertPokemons = async () => {
+export const InsertPokemons = async ( num:number ) => {
     try{
-        console.log("Iniciando Transferencia de Pokemons")
+        console.log("Iniciando Transferencia de Pokemons") 
 
+        const Id = TodosOsPokemons[num].Id 
+        const Name = TodosOsPokemons[num].Name
+        const Generation = TodosOsPokemons[num].Generation
+        const EvolutionStage = TodosOsPokemons[num].EvolutionStage
+        const Type1 = TodosOsPokemons[num].Type1
+        const Type2 = TodosOsPokemons[num].Type2
+        const Weather1 = TodosOsPokemons[num].Weather1
+        const Weather2 = TodosOsPokemons[num].Weather2
+        const STATTOTAL = TodosOsPokemons[num].STATTOTAL
+        const ATK = TodosOsPokemons[num].ATK
+        const DEF = TodosOsPokemons[num].DEF
+        const STA = TodosOsPokemons[num].STA
 
-    //    const { Id,Name,Generation,EvolutionStage,Type1,Type2,Weather1,Weather2,STATTOTAL,ATK,DEF,@CP40,CP@39 } = TodosOsPokemons[0]
-        const Id = TodosOsPokemons[1].Id
-        const Name = TodosOsPokemons[1].Name
-        const Generation = TodosOsPokemons[1].Generation
-        const EvolutionStage = TodosOsPokemons[1].EvolutionStage
-        const Type1 = TodosOsPokemons[1].Type1
-        const Type2 = TodosOsPokemons[1].Type2
-        const Weather1 = TodosOsPokemons[1].Weather1
-        const Weather2 = TodosOsPokemons[1].Weather2
-        const STATTOTAL = TodosOsPokemons[1].STATTOTAL
-        const ATK = TodosOsPokemons[1].ATK
-        const DEF = TodosOsPokemons[1].DEF
-        // const CP@40 = TodosOsPokemons[0].CP@40
-        // const CP@39 = TodosOsPokemons[0].CP@39
-
-
-
-        await connection
+        await connection 
        ('Poke_Red_Fox')
           .insert({
             Id,
@@ -38,14 +31,20 @@ export const InsertPokemons = async () => {
             Weather2,
             STATTOTAL,
             ATK,
-            DEF
-            // CP@40,
-            // CP@39
-
+            DEF,
+            STA
           })
             
-        console.log("Todos Os Pokemons Adicionados Com sucesso...")
-    }catch{
-        console.log("Algo de errado, NÃO ESTÁ CERTO...")
+        console.log("Pokemon Adicionado Com sucesso...")
+    }catch(error: any){
+        console.log("Algo de errado, NÃO ESTÁ CERTO...", error.sqlMessage || error.message)
     }
+}
+
+
+export const InsertAllPokemons = () => {
+
+  for (let i = 0 ; i < 821; i++){
+    InsertPokemons(i)
+  }
 }

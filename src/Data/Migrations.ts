@@ -15,9 +15,7 @@ export const Migrations = async () => {
             STATTOTAL INT,
             ATK INT,
             DEF INT,
-            STA INT,
-            CP40 INT,
-            CP39 INT
+            STA INT        
             );        
         `)
             

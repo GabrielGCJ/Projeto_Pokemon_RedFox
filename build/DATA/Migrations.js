@@ -26,9 +26,7 @@ const Migrations = () => __awaiter(void 0, void 0, void 0, function* () {
             STATTOTAL INT,
             ATK INT,
             DEF INT,
-            STA INT,
-            CP40 INT,
-            CP39 INT
+            STA INT        
             );        
         `);
         console.log("Banco de dados adicionado/atualizado com sucesso...");
