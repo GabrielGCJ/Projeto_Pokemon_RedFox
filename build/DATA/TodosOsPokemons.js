@@ -6627,7 +6627,7 @@ exports.TodosOsPokemons = [
         "CP@39": 1381
     },
     {
-        "Id": 415,
+        "Id": 823,
         "Name": "Burmy (Plant Cloak)",
         "Generation": 4,
         "EvolutionStage": 1,
