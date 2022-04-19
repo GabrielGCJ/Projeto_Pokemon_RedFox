@@ -19,7 +19,7 @@ const AllPokemonsList = (req, res) => __awaiter(void 0, void 0, void 0, function
         res.status(200).send(Pokemons);
     }
     catch (error) {
-        res.status(300).send("Algo de Errado não está certo...");
+        console.log("Algo de errado, NÃO ESTÁ CERTO...", error.sqlMessage || error.message);
     }
 });
 exports.AllPokemonsList = AllPokemonsList;
