@@ -9,20 +9,21 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.PokemonName = void 0;
+exports.ProcurarPokemonPorNome = void 0;
 const app_1 = require("../app,");
-const PokemonName = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+const ProcurarPokemonPorNome = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        let message = "Success!";
-        const name = "bubasalro";
-        const Pokemons = yield (0, app_1.connection)("Poke_Red_Fox")
-            .select("Name")
-            .select("${name}");
-        res.status(200).send(Pokemons);
+        const namenew = "Bulbasaur";
+        const resposta = yield app_1.connection.raw(`
+    
+    SELECT * FROM Poke_Red_Fox WHERE Name = "${namenew}" ;
+    
+  `);
+        res.status(200).send(resposta[0]);
     }
     catch (error) {
-        res.status(300).send("Algo de Errado não está certo...");
+        res.status(300).send(error.sqlMessage || error.message).send("Algo de Errado, Não está certo...");
     }
 });
-exports.PokemonName = PokemonName;
+exports.ProcurarPokemonPorNome = ProcurarPokemonPorNome;
 //# sourceMappingURL=PokemonName.js.map
