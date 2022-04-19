@@ -1,7 +1,6 @@
 import knex, { Knex } from "knex";
 import dotenv from 'dotenv'
 
-
 dotenv.config()
 
 // export class BaseDataBase {
@@ -29,7 +28,6 @@ export const connection: Knex = knex({
        multipleStatements: true
     }
  })
-
 
 // OBS:
 // Para Usar BaseDataBase use: BaseDataBase.connection() 

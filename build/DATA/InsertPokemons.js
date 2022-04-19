@@ -9,10 +9,10 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.InsertAllPokemons = exports.InsertPokemons = void 0;
+exports.UpdatePokemon = exports.InsertAllPokemons = exports.InsertPokemon = void 0;
 const BaseDataBase_1 = require("./BaseDataBase");
 const TodosOsPokemons_1 = require("./TodosOsPokemons");
-const InsertPokemons = (num) => __awaiter(void 0, void 0, void 0, function* () {
+const InsertPokemon = (num) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         console.log("Iniciando Transferencia de Pokemons");
         const Id = TodosOsPokemons_1.TodosOsPokemons[num].Id;
@@ -48,11 +48,48 @@ const InsertPokemons = (num) => __awaiter(void 0, void 0, void 0, function* () {
         console.log("Algo de errado, NÃO ESTÁ CERTO...", error.sqlMessage || error.message);
     }
 });
-exports.InsertPokemons = InsertPokemons;
+exports.InsertPokemon = InsertPokemon;
 const InsertAllPokemons = () => {
     for (let i = 0; i < 821; i++) {
-        (0, exports.InsertPokemons)(i);
+        (0, exports.InsertPokemon)(i);
     }
 };
 exports.InsertAllPokemons = InsertAllPokemons;
+const UpdatePokemon = (num) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        console.log("Iniciando Transferencia de Pokemons");
+        const Id = TodosOsPokemons_1.TodosOsPokemons[num].Id;
+        const Name = TodosOsPokemons_1.TodosOsPokemons[num].Name;
+        const Generation = TodosOsPokemons_1.TodosOsPokemons[num].Generation;
+        const EvolutionStage = TodosOsPokemons_1.TodosOsPokemons[num].EvolutionStage;
+        const Type1 = TodosOsPokemons_1.TodosOsPokemons[num].Type1;
+        const Type2 = TodosOsPokemons_1.TodosOsPokemons[num].Type2;
+        const Weather1 = TodosOsPokemons_1.TodosOsPokemons[num].Weather1;
+        const Weather2 = TodosOsPokemons_1.TodosOsPokemons[num].Weather2;
+        const STATTOTAL = TodosOsPokemons_1.TodosOsPokemons[num].STATTOTAL;
+        const ATK = TodosOsPokemons_1.TodosOsPokemons[num].ATK;
+        const DEF = TodosOsPokemons_1.TodosOsPokemons[num].DEF;
+        const STA = TodosOsPokemons_1.TodosOsPokemons[num].STA;
+        yield (0, BaseDataBase_1.connection)('Poke_Red_Fox')
+            .update({
+            Id,
+            Name,
+            Generation,
+            EvolutionStage,
+            Type1,
+            Type2,
+            Weather1,
+            Weather2,
+            STATTOTAL,
+            ATK,
+            DEF,
+            STA
+        });
+        console.log("Pokemon Atualizado Com sucesso...");
+    }
+    catch (error) {
+        console.log("Algo de errado, NÃO ESTÁ CERTO...", error.sqlMessage || error.message);
+    }
+});
+exports.UpdatePokemon = UpdatePokemon;
 //# sourceMappingURL=InsertPokemons.js.map

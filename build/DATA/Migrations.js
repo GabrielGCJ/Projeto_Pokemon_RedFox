@@ -17,22 +17,22 @@ const Migrations = () => __awaiter(void 0, void 0, void 0, function* () {
           CREATE TABLE IF NOT EXISTS Poke_Red_Fox (
             Id INT PRIMARY KEY,
             Name VARCHAR(255) UNIQUE NOT NULL,
-            Generation INT, 
-            EvolutionStage INT,
-            Type1 VARCHAR(255),
-            Type2 VARCHAR(255),
-            Weather1 VARCHAR(255),
-            Weather2 VARCHAR(255),
-            STATTOTAL INT,
-            ATK INT,
-            DEF INT,
-            STA INT        
+            Generation INT DEFAULT "-1", 
+            EvolutionStage VARCHAR(255) DEFAULT "Bananinha",
+            Type1 VARCHAR(255)  DEFAULT "Bananinha",
+            Type2 VARCHAR(255)  DEFAULT "Bananinha",
+            Weather1 VARCHAR(255) DEFAULT "Bananinha",
+            Weather2 VARCHAR(255) DEFAULT "Bananinha",
+            STATTOTAL INT DEFAULT "-1",
+            ATK INT DEFAULT "-1",
+            DEF INT DEFAULT "-1",
+            STA INT DEFAULT "-1"        
             );        
         `);
         console.log("Banco de dados adicionado/atualizado com sucesso...");
     }
-    catch (_a) {
-        console.log("Algo de errado, NÃO ESTÁ CERTO...");
+    catch (error) {
+        console.log("Algo de errado, NÃO ESTÁ CERTO...", error.sqlMessage || error.message);
     }
 });
 exports.Migrations = Migrations;
