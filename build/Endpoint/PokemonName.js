@@ -16,9 +16,9 @@ const ProcurarPokemonPorNome = (req, res) => __awaiter(void 0, void 0, void 0, f
         const namenew = "Bulbasaur";
         const resposta = yield app_1.connection.raw(`
     
-    SELECT * FROM Poke_Red_Fox WHERE Name = "${namenew}" ;
+            SELECT * FROM Poke_Red_Fox WHERE Name = "${namenew}" ;
     
-  `);
+        `);
         res.status(200).send(resposta[0]);
     }
     catch (error) {

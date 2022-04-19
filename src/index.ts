@@ -9,11 +9,11 @@ import { ProcurarPokemonPorNome } from "./Endpoint/PokemonName"
 
 console.log("Tá FuncionanIIIIIIIII...!!!!")
 
-// Migrations() 
+Migrations() 
 
-// InsertAllPokemons()
+InsertAllPokemons()
 
 // UpdatePokemon()
 
-app.get('/pokemons', AllPokemonsList)
-app.get('/nome', ProcurarPokemonPorNome)
+// app.get('/pokemons', AllPokemonsList)
+// app.get('/nome', ProcurarPokemonPorNome)

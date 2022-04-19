@@ -20,26 +20,13 @@ export const InsertPokemon = async ( num:number ) => {
 
         await connection 
        ('Poke_Red_Fox')
-          .insert({
-            Id,
-            Name,
-            Generation,
-            EvolutionStage,
-            Type1,
-            Type2,
-            Weather1,
-            Weather2,
-            STATTOTAL,
-            ATK,
-            DEF,
-            STA
-          })
+          .insert({ Id, Name, Generation, EvolutionStage, Type1, Type2, Weather1, Weather2, STATTOTAL, ATK, DEF, STA })
             
-        console.log("Pokemon Adicionado Com sucesso...")
+        console.log ( `Pokemon ${Name} Adicionado Com sucesso...` )
 
     }catch(error: any){
       
-        console.log("Algo de errado, NÃO ESTÁ CERTO...", error.sqlMessage || error.message)
+        console.log( "Algo de errado, NÃO ESTÁ CERTO...", error.sqlMessage || error.message )
     }
 }
 
@@ -47,7 +34,9 @@ export const InsertPokemon = async ( num:number ) => {
 export const InsertAllPokemons = () => {
 
   for (let i = 0 ; i < 821; i++){
+
     InsertPokemon(i)
+
   }
 }
 
@@ -70,23 +59,11 @@ export const UpdatePokemon = async ( num:number ) => {
 
       await connection 
      ('Poke_Red_Fox')
-        .update({
-          Id,
-          Name,
-          Generation,
-          EvolutionStage,
-          Type1,
-          Type2,
-          Weather1,
-          Weather2,
-          STATTOTAL,
-          ATK,
-          DEF,
-          STA
-        })
+        .update({ Id, Name, Generation, EvolutionStage, Type1, Type2, Weather1, Weather2, STATTOTAL, ATK, DEF, STA })
           
       console.log("Pokemon Atualizado Com sucesso...")
-  }catch(error: any){
+
+  } catch (error: any){
       console.log("Algo de errado, NÃO ESTÁ CERTO...", error.sqlMessage || error.message)
   }
 }

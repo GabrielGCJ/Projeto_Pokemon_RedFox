@@ -28,21 +28,8 @@ const InsertPokemon = (num) => __awaiter(void 0, void 0, void 0, function* () {
         const DEF = TodosOsPokemons_1.TodosOsPokemons[num].DEF;
         const STA = TodosOsPokemons_1.TodosOsPokemons[num].STA;
         yield (0, BaseDataBase_1.connection)('Poke_Red_Fox')
-            .insert({
-            Id,
-            Name,
-            Generation,
-            EvolutionStage,
-            Type1,
-            Type2,
-            Weather1,
-            Weather2,
-            STATTOTAL,
-            ATK,
-            DEF,
-            STA
-        });
-        console.log("Pokemon Adicionado Com sucesso...");
+            .insert({ Id, Name, Generation, EvolutionStage, Type1, Type2, Weather1, Weather2, STATTOTAL, ATK, DEF, STA });
+        console.log(`Pokemon ${Name} Adicionado Com sucesso...`);
     }
     catch (error) {
         console.log("Algo de errado, NÃO ESTÁ CERTO...", error.sqlMessage || error.message);
@@ -71,20 +58,7 @@ const UpdatePokemon = (num) => __awaiter(void 0, void 0, void 0, function* () {
         const DEF = TodosOsPokemons_1.TodosOsPokemons[num].DEF;
         const STA = TodosOsPokemons_1.TodosOsPokemons[num].STA;
         yield (0, BaseDataBase_1.connection)('Poke_Red_Fox')
-            .update({
-            Id,
-            Name,
-            Generation,
-            EvolutionStage,
-            Type1,
-            Type2,
-            Weather1,
-            Weather2,
-            STATTOTAL,
-            ATK,
-            DEF,
-            STA
-        });
+            .update({ Id, Name, Generation, EvolutionStage, Type1, Type2, Weather1, Weather2, STATTOTAL, ATK, DEF, STA });
         console.log("Pokemon Atualizado Com sucesso...");
     }
     catch (error) {
