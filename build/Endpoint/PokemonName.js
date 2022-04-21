@@ -13,12 +13,15 @@ exports.ProcurarPokemonPorNome = void 0;
 const app_1 = require("../app,");
 const ProcurarPokemonPorNome = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const namenew = "Bulbasaur";
+        const namenew = req.query.name;
         const resposta = yield app_1.connection.raw(`
     
             SELECT * FROM Poke_Red_Fox WHERE Name = "${namenew}" ;
     
         `);
+        if (!resposta) {
+            res.status(300).send("Pokemon não encontrado....");
+        }
         res.status(200).send(resposta[0]);
     }
     catch (error) {
