@@ -8,13 +8,15 @@ export const ProcurarPokemonPorNome = async (req: Request, res: Response) => {
 
         const namenew = req.query.name
 
+        if(!namenew){res.status(300).send("Insira o NOME para nova busca...")}
+
         const resposta = await connection.raw(`
     
-            SELECT * FROM Poke_Red_Fox WHERE Name = "${namenew}" ;
+            SELECT * FROM Poke_Red_Fox WHERE Name Like "%${namenew}%" ;
     
         `)
 
-        if(!resposta){res.status(300).send("Pokemon não encontrado....")}
+        if( resposta === [] ){ res.status(300).send("Pokemon não encontrado...." )}
 
   res.status(200).send(resposta[0])
 
