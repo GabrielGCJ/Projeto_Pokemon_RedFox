@@ -18,12 +18,12 @@ const ProcurarPokemonPorNome = (req, res) => __awaiter(void 0, void 0, void 0, f
             res.status(300).send("Insira o NOME para nova busca...");
         }
         const resposta = yield app_1.connection.raw(`
-    
+        
             SELECT * FROM Poke_Red_Fox WHERE Name Like "%${namenew}%" ;
-    
+        
         `);
-        if (resposta === []) {
-            res.status(300).send("Pokemon não encontrado....");
+        if (resposta[0].length === 0) {
+            res.status(300).send("Pokemon não encontrado...");
         }
         res.status(200).send(resposta[0]);
     }

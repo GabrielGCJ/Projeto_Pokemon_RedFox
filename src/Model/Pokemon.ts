@@ -1,6 +1,5 @@
 export class Pokemon {
     constructor(
-
         public Id: number,
         public Name: string,
         public PokedexNumber: number, 
@@ -30,6 +29,5 @@ export class Pokemon {
         public FutureEvolve: number,
         public CP40: number,
         public CP39: number,
-
     ){}
 }

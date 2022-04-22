@@ -4,17 +4,16 @@ import { connection } from "../app,"
 
 
 export const AllPokemonsList = async (req: Request, res: Response) => {
-    try {
-       let message = "Success!"
+   try{
+
+      const Pokemons: any = await connection("Poke_Red_Fox")
+      .select("Name")
  
+      res.status(200).send(Pokemons)
  
-       const Pokemons: any = await connection("Poke_Red_Fox")
-          .select("Name")
- 
-       res.status(200).send(Pokemons)
- 
-      } catch (error: any) {
+   }catch (error: any) {
        
-         console.log( "Algo de errado, NÃO ESTÁ CERTO...", error.sqlMessage || error.message )
-      }
+      res.status(300).send( error.sqlMessage || error.message ).send("Algo de Errado, Não está certo...")
+   
+   }
 }

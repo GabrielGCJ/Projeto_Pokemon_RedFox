@@ -13,13 +13,12 @@ exports.AllPokemonsList = void 0;
 const app_1 = require("../app,");
 const AllPokemonsList = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        let message = "Success!";
         const Pokemons = yield (0, app_1.connection)("Poke_Red_Fox")
             .select("Name");
         res.status(200).send(Pokemons);
     }
     catch (error) {
-        console.log("Algo de errado, NÃO ESTÁ CERTO...", error.sqlMessage || error.message);
+        res.status(300).send(error.sqlMessage || error.message).send("Algo de Errado, Não está certo...");
     }
 });
 exports.AllPokemonsList = AllPokemonsList;
