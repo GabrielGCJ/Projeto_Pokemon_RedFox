@@ -14,7 +14,8 @@ const app_1 = require("../app,");
 const AllPokemonsList = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const Pokemons = yield (0, app_1.connection)("Poke_Red_Fox")
-            .select("Name");
+            .select("Id", "Name")
+            .orderBy("Id");
         res.status(200).send(Pokemons);
     }
     catch (error) {

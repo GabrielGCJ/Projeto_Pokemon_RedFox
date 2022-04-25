@@ -7,8 +7,9 @@ export const AllPokemonsList = async (req: Request, res: Response) => {
    try{
 
       const Pokemons: any = await connection("Poke_Red_Fox")
-      .select("Name")
- 
+      .select("Id","Name")
+      .orderBy("Id")
+
       res.status(200).send(Pokemons)
  
    }catch (error: any) {
