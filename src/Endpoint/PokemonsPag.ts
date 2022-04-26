@@ -8,7 +8,8 @@ export const pokemonsPag = async (req: Request , res: Response) => {
 
     try{
         var meuValor = req.query.page
-
+       
+        if(!meuValor){res.status(300).send("Insira o numero da pagina...")}
 
         switch (meuValor) {
 
@@ -354,9 +355,9 @@ export const pokemonsPag = async (req: Request , res: Response) => {
             
             default:
               console.log(`Sorry`);
-          }
+        }
 
-        if(!meuValor){res.status(300).send("Insira o numero da pagina...")}
+       
 
         const Pokemons: any = await connection.raw(` 
             SELECT * FROM Poke_Red_Fox ORDER BY ID ASC LIMIT 10 OFFSET ${pag}
