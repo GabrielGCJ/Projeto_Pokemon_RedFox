@@ -1,9 +1,6 @@
 import { Request, Response } from "express"
 import { connection } from "../Data/BaseDataBase"
 
-
-
-
 export const pokemonsPag = async (req: Request , res: Response) => {
 
     try{
@@ -355,9 +352,7 @@ export const pokemonsPag = async (req: Request , res: Response) => {
             
             default:
               console.log(`Sorry`);
-        }
-
-       
+        }       
 
         const Pokemons: any = await connection.raw(` 
             SELECT * FROM Poke_Red_Fox ORDER BY ID ASC LIMIT 10 OFFSET ${pag}
